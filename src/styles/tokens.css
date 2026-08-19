@@ -1,0 +1,80 @@
+/*
+  Kenneth Portfolio — Design Tokens
+  --------------------------------------------------
+  Palette: deep void black, editorial off-white, and a single
+  arterial-red accent that ties the whole site back to the VHS /
+  horror-premium signature project. Nothing else competes with it.
+
+  Type: Fraunces (editorial serif, huge display) paired with Inter
+  (neutral grotesk for body/UI) and IBM Plex Mono (small caps
+  labels — categories, indices, timestamps — like tape counters).
+*/
+
+:root {
+  /* ---- Color ---- */
+  --void: #050505;
+  --void-soft: #0b0b0d;
+  --charcoal: #131316;
+  --charcoal-soft: #1c1c20;
+  --line: rgba(245, 243, 239, 0.1);
+  --line-strong: rgba(245, 243, 239, 0.22);
+  --bone: #f5f3ef;
+  --bone-dim: rgba(245, 243, 239, 0.62);
+  --bone-faint: rgba(245, 243, 239, 0.34);
+  --white: #ffffff;
+
+  --accent: #8a1030;
+  --accent-bright: #c21f42;
+  --accent-dim: rgba(138, 16, 48, 0.35);
+  --accent-glow: rgba(194, 31, 66, 0.18);
+
+  --bg: var(--void);
+  --fg: var(--bone);
+
+  /* ---- Type ---- */
+  --font-display: "Fraunces", "Iowan Old Style", ui-serif, Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --fs-display-xl: clamp(3.4rem, 11vw, 11rem);
+  --fs-display-lg: clamp(2.6rem, 7vw, 6.4rem);
+  --fs-display-md: clamp(1.8rem, 4vw, 3.4rem);
+  --fs-eyebrow: 0.72rem;
+  --fs-body-lg: clamp(1.05rem, 1.6vw, 1.4rem);
+  --fs-body: 1rem;
+  --fs-caption: 0.8rem;
+
+  --lh-tight: 0.94;
+  --lh-snug: 1.15;
+  --lh-body: 1.6;
+
+  --tracking-tight: -0.03em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.22em;
+
+  /* ---- Layout ---- */
+  --gutter: clamp(1.5rem, 5vw, 4rem);
+  --content-max: 1400px;
+  --section-pad-y: clamp(5rem, 12vh, 10rem);
+
+  /* ---- Motion ---- */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --dur-fast: 0.3s;
+  --dur-med: 0.7s;
+  --dur-slow: 1.4s;
+
+  /* ---- Cursor ---- */
+  --cursor-size: 14px;
+
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0.01s;
+    --dur-med: 0.01s;
+    --dur-slow: 0.01s;
+  }
+}

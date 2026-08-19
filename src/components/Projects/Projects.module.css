@@ -1,0 +1,157 @@
+.projectsHeader {
+  padding: var(--section-pad-y) var(--gutter) 2rem;
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.project {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem var(--gutter);
+  border-top: 1px solid var(--line);
+}
+
+.projectInner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.project:nth-child(even) .projectInner {
+  direction: rtl;
+}
+
+.project:nth-child(even) .projectInner > * {
+  direction: ltr;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--charcoal);
+}
+
+.mediaInner {
+  position: absolute;
+  inset: 0;
+  transform: scale(1.18);
+  will-change: transform;
+}
+
+.mediaLabel {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.infoTop {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.titleMask {
+  overflow: hidden;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: var(--tracking-tight);
+  transform: translateY(105%);
+  will-change: transform;
+}
+
+.description {
+  max-width: 40ch;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--line-strong);
+  width: fit-content;
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  transition: border-color 0.3s var(--ease-premium), color 0.3s var(--ease-premium);
+}
+
+.cta:hover,
+.cta:focus-visible {
+  border-color: var(--accent-bright);
+  color: var(--accent-bright);
+}
+
+.arrow {
+  transition: transform 0.3s var(--ease-premium);
+}
+
+.cta:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* --- Featured (VHS) treatment --- */
+.featured {
+  min-height: 100vh;
+}
+
+.featured .projectInner {
+  grid-template-columns: 1fr;
+}
+
+.featured .media {
+  aspect-ratio: auto;
+  height: 72vh;
+  border-color: var(--accent-dim);
+}
+
+.featured .title {
+  font-size: clamp(4.5rem, 13vw, 10rem);
+}
+
+.featuredBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--accent-dim);
+  color: var(--accent-bright);
+  width: fit-content;
+}
+
+@media (max-width: 860px) {
+  .projectInner,
+  .project:nth-child(even) .projectInner {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+
+  .featured .media {
+    height: 60vh;
+  }
+}

@@ -1,0 +1,26 @@
+.dot{
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 200;
+  will-change: transform;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+}
+
+.dot[data-hidden="true"] {
+  opacity: 0;
+}
+
+@media not all and (hover: hover) and (pointer: fine) {
+  .dot{
+    display: none;
+  }
+}

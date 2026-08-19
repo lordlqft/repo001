@@ -1,0 +1,41 @@
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+      120% 90% at 50% 0%,
+      rgba(5, 5, 5, 0) 40%,
+      rgba(5, 5, 5, 0.7) 100%
+    ),
+    radial-gradient(140% 100% at 50% 100%, rgba(5, 5, 5, 0) 45%, rgba(5, 5, 5, 0.85) 100%);
+}
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: var(--void);
+}
+
+.ambient::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+    ellipse 60% 40% at var(--ambient-x, 50%) var(--ambient-y, 20%),
+    var(--accent-glow) 0%,
+    transparent 60%
+  );
+  transition: background-position 1.2s var(--ease-soft);
+  will-change: background-position;
+}
+
+.ambient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--void) 0%, var(--void-soft) 50%, var(--void) 100%);
+  opacity: 0.6;
+}

@@ -1,0 +1,180 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(6rem, 14vh, 9rem) var(--gutter) clamp(3rem, 8vh, 5rem);
+  overflow: clip;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.backdropGlyph {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(14rem, 46vw, 46rem);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line);
+  line-height: 1;
+  user-select: none;
+  transform: translateY(-4%);
+}
+
+.eyebrowRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  overflow: hidden;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  box-shadow: 0 0 10px var(--accent-glow);
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: var(--fs-display-xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 clamp(1.5rem, 4vw, 2.5rem);
+  max-width: 20ch;
+}
+
+.title :global(.word-mask) {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.title :global(.word) {
+  display: inline-block;
+  transform: translateY(115%);
+  will-change: transform;
+}
+
+.titleAccent {
+  font-style: italic;
+  color: var(--accent-bright);
+}
+
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.subtitle {
+  max-width: 34ch;
+  overflow: hidden;
+}
+
+.subtitle :global(.sub-mask) {
+  display: block;
+  overflow: hidden;
+}
+
+.subtitle :global(.sub) {
+  display: block;
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+.scrollCue {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  opacity: 0;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(180deg, var(--bone-faint) 0%, transparent 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollLine::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, var(--accent-bright) 100%);
+  animation: scrollDrip 2.4s var(--ease-soft) infinite;
+}
+
+@keyframes scrollDrip {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.scrollLabel {
+  writing-mode: vertical-rl;
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--bone-faint);
+}
+
+@media (max-width: 720px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .scrollCue {
+    flex-direction: row-reverse;
+  }
+
+  .scrollLabel {
+    writing-mode: horizontal-tb;
+  }
+
+  .scrollLine {
+    width: 46px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--bone-faint) 0%, transparent 100%);
+  }
+
+  .scrollLine::after {
+    background: linear-gradient(90deg, transparent 0%, var(--accent-bright) 100%);
+    animation: scrollDripHorizontal 2.4s var(--ease-soft) infinite;
+    top: 0;
+    left: -100%;
+  }
+
+  @keyframes scrollDripHorizontal {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+}
