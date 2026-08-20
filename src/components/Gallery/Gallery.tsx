@@ -54,8 +54,7 @@ export default function Gallery() {
           </h2>
         </div>
         <p className={`${styles.headerNote} body-lg`}>
-          Recortes de processo e still frames dos projetos — organizados como uma
-          página de contato, não como uma grade de produto.
+          Fotos extra dos de outros projetos.
         </p>
       </div>
 

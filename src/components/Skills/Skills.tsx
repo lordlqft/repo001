@@ -51,7 +51,7 @@ export default function Skills() {
       <div className={styles.header}>
         <span className="eyebrow">04 — Skills</span>
         <h2 className="display-lg" style={{ marginTop: "1rem" }}>
-          Ferramentas <span className="accent-italic">com intenção.</span>
+          Ferramentas e <span className="accent-italic">habilidades.</span>
         </h2>
       </div>
 

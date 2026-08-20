@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import styles from "./Projects.module.css";
 import { gsap } from "../../animations/gsap";
 import ProjectArt from "../../assets/generated/ProjectArt";
-import VhsArt from "../../assets/generated/VhsArt";
 import type { ProjectEntry } from "./projectsData";
 
 interface ProjectCardProps {
@@ -36,7 +35,10 @@ export default function ProjectCard({ project, seed }: ProjectCardProps) {
         y: "0%",
         duration: 1.1,
         ease: "power4.out",
-        scrollTrigger: { trigger: rootRef.current, start: "top 75%" },
+        scrollTrigger: {
+          trigger: rootRef.current,
+          start: "top 75%",
+        },
       });
 
       gsap.from(`.project-fade-${project.id}`, {
@@ -45,7 +47,10 @@ export default function ProjectCard({ project, seed }: ProjectCardProps) {
         duration: 0.9,
         ease: "power2.out",
         stagger: 0.08,
-        scrollTrigger: { trigger: rootRef.current, start: "top 70%" },
+        scrollTrigger: {
+          trigger: rootRef.current,
+          start: "top 70%",
+        },
       });
     }, rootRef);
 
@@ -55,7 +60,8 @@ export default function ProjectCard({ project, seed }: ProjectCardProps) {
   return (
     <article
       ref={rootRef}
-      className={`${styles.project} ${project.featured ? styles.featured : ""}`}
+      className={`${styles.project} ${project.featured ? styles.featured : ""
+        }`}
       id={`project-${project.id}`}
     >
       <div className={styles.projectInner}>
@@ -64,18 +70,29 @@ export default function ProjectCard({ project, seed }: ProjectCardProps) {
             <span className="mono-label">{project.index}</span>
             <span className="mono-label">{project.year}</span>
           </div>
+
           <div className={styles.mediaInner} ref={mediaInnerRef}>
-            {project.id === "vhs" ? (
-              <VhsArt />
+            {project.image ? (
+              <img
+                src={project.image}
+                alt={project.title}
+                className={`${styles.projectImage} ${styles[`image-${project.id}`]}`}
+              />
             ) : (
-              <ProjectArt seed={seed} from={project.palette.from} to={project.palette.to} />
+              <ProjectArt
+                seed={seed}
+                from={project.palette.from}
+                to={project.palette.to}
+              />
             )}
           </div>
         </div>
 
         <div className={styles.info}>
           {project.featured && (
-            <span className={`${styles.featuredBadge} mono-label project-fade-${project.id}`}>
+            <span
+              className={`${styles.featuredBadge} mono-label project-fade-${project.id}`}
+            >
               Projeto em destaque
             </span>
           )}
@@ -90,7 +107,9 @@ export default function ProjectCard({ project, seed }: ProjectCardProps) {
             </h3>
           </div>
 
-          <p className={`${styles.description} body-lg project-fade-${project.id}`}>
+          <p
+            className={`${styles.description} body-lg project-fade-${project.id}`}
+          >
             {project.description}
           </p>
 
@@ -101,7 +120,7 @@ export default function ProjectCard({ project, seed }: ProjectCardProps) {
             className={`${styles.cta} project-fade-${project.id}`}
             data-cursor="link"
           >
-            Ver no GitHub <span className={styles.arrow}>↗</span>
+            Ver projeto <span className={styles.arrow}>↗</span>
           </a>
         </div>
       </div>
