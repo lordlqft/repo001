@@ -20,7 +20,7 @@ export default function Cursor() {
       target.y = event.clientY;
       setHidden(false);
 
-      const element = event.target as HTMLElement;
+
 
     };
 
