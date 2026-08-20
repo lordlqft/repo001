@@ -3,7 +3,6 @@ import styles from "./Cursor.module.css";
 
 export default function Cursor() {
   const dotRef = useRef<HTMLDivElement>(null);
-  const [variant, setVariant] = useState<"default" | "link">("default");
   const [hidden, setHidden] = useState(true);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ export default function Cursor() {
       setHidden(false);
 
       const element = event.target as HTMLElement;
-      setVariant(element.closest("[data-cursor='link']") ? "link" : "default");
+
     };
 
     const handleLeave = () => setHidden(true);
